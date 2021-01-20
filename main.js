@@ -1,4 +1,5 @@
 "use strict"
+let finalResult;
 
 function calcSum(n) {
   if(typeof n !== 'number') {
@@ -12,18 +13,18 @@ function calcSum(n) {
       throw new Error('Сумма предыдущих чисел \= ' + result);
     }
     result += n;
+    finalResult = result;
     return calcInner;
   }
   calcInner.toString = () => result;
   return calcInner;
 } 
 
-const result = calcSum(9)('')(9)(1);
+calcSum(9)(9)(9)(1);
 
-function showResult() {
-  alert(result);
+function showFinalResult() {
+  alert(finalResult);
 }
 
-showResult();
-
+showFinalResult()
 
